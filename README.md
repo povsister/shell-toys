@@ -1,2 +1,8 @@
 # shell-toys
-My shell toy ground
+Backup of my shell scripts toys
+
+## Dependency
+
+* curl
+* jq
+* ...
