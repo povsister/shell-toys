@@ -3,7 +3,7 @@ BASE=$(dirname $0)
 
 cd "$BASE"
 source ./common.sh
-
+verifyCookie
 
 gids="1 2 3 4 5"
 

@@ -13,10 +13,12 @@ COOKIE='myCookie'
 APP_VERSION='2.1.0'
 CLIENT_TYPE='5'
 
-if [ ! -f "./cookies/$COOKIE" ]; then
-  echo "./cookies/$COOKIE not exist!"
-  exit 1
-fi
+verifyCookie() {
+  if [ ! -f "./cookies/$COOKIE" ]; then
+    echo "./cookies/$COOKIE not exist!"
+    exit 1
+  fi
+}
 
 genDS() {
   local UUID=$(uuidgen)

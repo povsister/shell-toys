@@ -4,7 +4,7 @@ BASE=$(dirname $0)
 cd "$BASE"
 source ./common.sh
 source ./sea.common.sh
-
+verifyCookie
 
 gids="1 2 3"
 

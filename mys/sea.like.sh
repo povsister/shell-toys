@@ -4,6 +4,7 @@ BASE=$(dirname $0)
 cd "$BASE"
 source ./common.sh
 source ./sea.common.sh
+verifyCookie
 
 #BH3='https://api-takumi.mihoyo.com/post/wapi/getForumPostList?gids=1&forum_id=1&is_hot=false&is_good=false&sort_type=2&page_size=10'
 YS='https://api-os-takumi.mihoyo.com/community/post/api/forumPostList?gids=2&forum_id=1&show_en=true&sort=create&page_size=10'

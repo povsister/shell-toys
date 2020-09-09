@@ -3,6 +3,7 @@ BASE=$(dirname $0)
 
 cd "$BASE"
 source ./common.sh
+verifyCookie
 
 BH3='https://api-takumi.mihoyo.com/post/wapi/getForumPostList?gids=1&forum_id=1&is_hot=false&is_good=false&sort_type=2&page_size=10'
 YS='https://api-takumi.mihoyo.com/post/wapi/getForumPostList?gids=2&forum_id=26&is_hot=false&is_good=false&sort_type=2&page_size=10'
