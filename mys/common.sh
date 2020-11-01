@@ -10,7 +10,7 @@ ENCODING='gzip, deflate, br'
 
 COOKIE='myCookie'
 
-APP_VERSION='2.1.0'
+APP_VERSION='2.2.0'
 CLIENT_TYPE='5'
 
 verifyCookie() {
@@ -44,5 +44,15 @@ httpPost() {
     curl "$URL" -H "x-rpc-app_version: $APP_VERSION" -H "x-rpc-client_type: $CLIENT_TYPE" -H "DS: $DS" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "Content-Type: $CONTENT_TYPE" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed -d "$BODY"
   else
     curl -X POST "$URL" -H "x-rpc-app_version: $APP_VERSION" -H "x-rpc-client_type: $CLIENT_TYPE" -H "DS: $DS" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "Content-Type: $CONTENT_TYPE" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed
+  fi
+}
+
+appWebviewPost() {
+  local URL=$1
+  local BODY=$2
+  if [ -z "$BODY" ]; then
+    curl -X POST "$URL" -H "X-Requested-With: com.mihoyo.hyperion" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "Content-Type: $CONTENT_TYPE" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed
+  else
+    curl "$URL" -H "X-Requested-With: com.mihoyo.hyperion" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "Content-Type: $CONTENT_TYPE" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed -d "$BODY"
   fi
 }

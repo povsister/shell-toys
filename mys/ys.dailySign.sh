@@ -7,6 +7,7 @@ verifyCookie
 
 REFERER='https://webstatic.mihoyo.com/bbs/event/signin-ys/index.html?bbs_auth_required=true&act_id=e202009291139501&utm_source=bbs&utm_medium=mys&utm_campaign=icon'
 ORIGIN='https://webstatic.mihoyo.com'
+UA='User-Agent: Mozilla/5.0 (Linux; Android 9.0.0; 16s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Mobile Safari/537.36 miHoYoBBS/2.2.0'
 
 gids="YS"
 
@@ -14,7 +15,7 @@ for i in ${gids}; do
   retry=0
   while true; do
 
-    resp=$(httpPost "https://api-takumi.mihoyo.com/event/bbs_sign_reward/sign")
+    resp=$(appWebviewPost "https://api-takumi.mihoyo.com/event/bbs_sign_reward/sign")
     retcode=$(echo -n $resp|jq -r '.retcode')
     if [ "$retcode" == "0" -o "$retcode" == "1008" -o "$retcode" == "2001" ]; then
       echo "SignIn OK for $i. $resp"
