@@ -10,7 +10,7 @@ ENCODING='gzip, deflate, br'
 
 COOKIE='myCookie'
 
-APP_VERSION='2.2.0'
+APP_VERSION='2.1.0'
 CLIENT_TYPE='5'
 
 verifyCookie() {
