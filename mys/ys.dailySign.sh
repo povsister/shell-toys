@@ -12,7 +12,7 @@ UA='User-Agent: Mozilla/5.0 (Linux; Android 9.0.0; 16s; wv) AppleWebKit/537.36 (
 gids="YS"
 
 source ./cookies/ys.dailySign
-# Put your UID
+# Put your UID in ./cookies/ys.dailySign as ysSignUID=XXXX
 ysSignBody='{"act_id":"e202009291139501","region":"cn_gf01","uid":"'$ysSignUID'"}'
 
 for i in ${gids}; do
