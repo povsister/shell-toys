@@ -50,9 +50,11 @@ httpPost() {
 appWebviewPost() {
   local URL=$1
   local BODY=$2
+  local devID=$(uuidgen)
+
   if [ -z "$BODY" ]; then
-    curl -X POST "$URL" -H "X-Requested-With: com.mihoyo.hyperion" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "Content-Type: $CONTENT_TYPE" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed
+    curl -X POST "$URL" -H "x-rpc-device_id: $devID" -H "X-Requested-With: com.mihoyo.hyperion" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed
   else
-    curl "$URL" -H "X-Requested-With: com.mihoyo.hyperion" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "Content-Type: $CONTENT_TYPE" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed -d "$BODY"
+    curl "$URL" -H "x-rpc-device_id: $devID" -H "X-Requested-With: com.mihoyo.hyperion" -H "Accept: $ACCEPT" -H "Accept-Encoding: $ENCODING" -H "User-Agent: $UA" -H "Referer: $REFER" -H "Origin: $ORIGIN" -b "./cookies/$COOKIE" -s --compressed -d "$BODY"
   fi
 }

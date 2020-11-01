@@ -11,13 +11,17 @@ UA='User-Agent: Mozilla/5.0 (Linux; Android 9.0.0; 16s; wv) AppleWebKit/537.36 (
 
 gids="YS"
 
+source ./cookies/ys.dailySign
+# Put your UID
+ysSignBody='{"act_id":"e202009291139501","region":"cn_gf01","uid":"'$ysSignUID'"}'
+
 for i in ${gids}; do
   retry=0
   while true; do
 
-    resp=$(appWebviewPost "https://api-takumi.mihoyo.com/event/bbs_sign_reward/sign")
+    resp=$(appWebviewPost "https://api-takumi.mihoyo.com/event/bbs_sign_reward/sign" $ysSignBody)
     retcode=$(echo -n $resp|jq -r '.retcode')
-    if [ "$retcode" == "0" -o "$retcode" == "1008" -o "$retcode" == "2001" ]; then
+    if [ "$retcode" == "0" -o "$retcode" == "-5003" ]; then
       echo "SignIn OK for $i. $resp"
       break
     fi
