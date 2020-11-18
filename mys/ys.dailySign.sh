@@ -28,6 +28,7 @@ for i in ${gids}; do
 
     if [ $retry -ge 5 ]; then
       echo "Retry limit. break"
+      break
     fi
     retry=$((retry+1))
     echo "SignIn Failed for $i. retry $retry. $resp"
