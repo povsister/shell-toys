@@ -10,7 +10,7 @@ ENCODING='gzip, deflate, br'
 
 COOKIE='myCookie'
 
-APP_VERSION='2.1.0'
+APP_VERSION='2.3.0'
 CLIENT_TYPE='5'
 
 verifyCookie() {
@@ -24,7 +24,7 @@ genDS() {
   local UUID=$(uuidgen)
   local r=${UUID:0:6}
   local now=$(date +%s)
-  local salt=`echo -n $APP_VERSION | md5sum | awk '{print $1}'`
+  local salt="h8w582wxwgqvahcdkpvdhbh2w9casgfl"
   local DS=`echo -n "salt=$salt&t=$now&r=$r" | md5sum | awk '{print $1}'`
   echo "$now,$r,$DS"
 }
