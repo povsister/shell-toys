@@ -23,7 +23,7 @@ for ck in ${cookies}; do
     resp=$(appWebviewPost "https://api-takumi.mihoyo.com/event/bbs_sign_reward/sign" $ysSignBody)
     retcode=$(echo -n $resp|jq -r '.retcode')
     if [ "$retcode" == "0" -o "$retcode" == "-5003" ]; then
-      echo "SignIn OK for $i. $resp"
+      echo "SignIn OK for $ck. $resp"
       break
     fi
 
@@ -32,7 +32,7 @@ for ck in ${cookies}; do
       break
     fi
     retry=$((retry+1))
-    echo "SignIn Failed for $i. retry $retry. $resp"
+    echo "SignIn Failed for $ck. retry $retry. $resp"
     sleep 3
 
   done
