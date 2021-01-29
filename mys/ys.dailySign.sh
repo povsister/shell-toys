@@ -9,7 +9,7 @@ REFERER='https://webstatic.mihoyo.com/bbs/event/signin-ys/index.html?bbs_auth_re
 ORIGIN='https://webstatic.mihoyo.com'
 UA="User-Agent: Mozilla/5.0 (Linux; Android 9.0.0; 16s; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.100 Mobile Safari/537.36 miHoYoBBS/${APP_VERSION}"
 
-cookies="myCookie kiraCookie kirasCookie"
+cookies="myCookie kiraCookie kirasCookie xixiCookie"
 
 for ck in ${cookies}; do
   COOKIE=${ck}
