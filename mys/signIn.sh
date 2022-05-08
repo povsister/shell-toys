@@ -5,7 +5,7 @@ cd "$BASE"
 source ./common.sh
 verifyCookie
 
-gids="1 2 3 4 5"
+gids="1 2 3 4 5 6 7 8"
 
 for i in ${gids}; do
   retry=0
